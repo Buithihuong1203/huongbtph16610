@@ -1,6 +1,18 @@
-import './style.css'
+import Navigo from "navigo";
+const router = new Navigo("/", { linksSelector: "a"});
+const render = {content} => {
+  document.querySelector("#app").innerHTML = content;
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+};
+router.on({
+  "/": () => {
+    render("Home Page");
+  }, 
+  "/about": () => {
+    render("About Page");
+  },
+  "/product": () => {
+    render("Product page");
+  },
+});
+
