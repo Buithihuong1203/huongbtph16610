@@ -1,4 +1,4 @@
-import Navigo from "./navigo";
+//import Navigo from "navigo";
 import AboutPage from "./pages/about";
 import AdminNews from "./pages/admin/news";
 import AdminNewsAdd from "./pages/admin/news/add";
