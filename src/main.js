@@ -1,4 +1,4 @@
-import Navigo from "./navigo";
+import Navigo from "navigo";
 import AboutPage from "./pages/about";
 import AdminNews from "./pages/admin/news";
 import AdminNewsAdd from "./pages/admin/news/add";
@@ -41,3 +41,21 @@ router.on({
 });
 
 router.resolve();
+
+function renderValueAfter3s() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            try {
+                resolve("Loaded data after 3s");
+            } catch(error) {
+                reject("Failed");
+            }
+            }, 3000);
+        });
+}
+
+//const render = renderValueAfter3s();
+//render 
+//.then((result) => console.log(result))
+//.catch((error) => console.log(error));
+
