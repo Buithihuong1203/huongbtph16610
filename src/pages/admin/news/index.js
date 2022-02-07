@@ -1,8 +1,10 @@
+import { getAll, remove } from "../../../api/posts";
 import NavAdmin from "../../../components/NavAdmin";
 
 const AdminNews = {
-    render(){
-        return `
+    async render() {
+        const { data } = await getAll();
+        return /*html*/`
         <div class="min-h-full">
             ${NavAdmin.render()}
             <header class="bg-white shadow">
@@ -33,15 +35,54 @@ const AdminNews = {
             <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                 <!-- Replace with your content -->
                 <div class="px-4 py-6 sm:px-0">
-                <div
-                    class="border-4 border-dashed border-gray-200 rounded-lg h-96"
-                ></div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tiêu đề</th>
+                                <th>Ảnh</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${data.map((post, index) => `
+                                <tr>
+                                    <td>${index + 1}</td>
+                                    <td>${post.title}</td>
+                                    <td><img src="${post.img}" width="50"/></td>
+                                    <td>
+                                        <a href="/admin/news/${post.id}/edit">Edit</a>
+                                        <button data-id="${post.id}" class="btn btn-remove">Xóa</button>
+                                    </td>
+                                </tr>
+                            `).join("")}
+                            
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /End replace -->
             </div>
             </main>
         </div>
         `
+    },
+    afterRender() {
+        // lấy danh sách button sau khi render
+        const buttons = document.querySelectorAll('.btn');
+        // tạo vòng lặp cho nodelist button
+        buttons.forEach(btn => {
+            // lấy ID từ thuộc tính data-id của button
+            const id = btn.dataset.id;
+            btn.addEventListener('click', () => {
+                const confirm = window.confirm("Ban co muon xoa bai viet nay khong?");
+                if (confirm) {
+                    // gọi hàm delete trong folder API và bắn id vào hàm
+                    remove(id).then(() => {
+                        console.log('Da xoa thanh cong')
+                    })
+                }
+            })
+        });
     }
 }
 export default AdminNews;

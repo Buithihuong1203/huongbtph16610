@@ -7,55 +7,39 @@ import DashboardPage from "./pages/dashboard";
 import DetailPage from "./pages/detail";
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
-import Footer from "./components/footer";
-import Header from "./components/header";
 import SignIn from "./pages/signin";
 import SignUp from "./pages/signup";
 const router = new Navigo("/", { linksSelector: "a" });
 
-const print = (content) => {
-    document.querySelector("#app").innerHTML = content;
+const print = async (content) => {
+    document.querySelector("#app").innerHTML = await content.render();
+    if (content.afterRender) await content.afterRender();
 };
 
+
 router.on({
-    "/": () => print(HomePage.render()),
-    "/about": () => print(AboutPage.render()),
-    "/product": () => print(ProductPage.render()),
-    "/signin": () => print(SignIn.render()),
-    "/signup": () => print(SignUp.render()),
+    "/": () => print(HomePage),
+    "/about": () => print(AboutPage),
+    "/product": () => print(ProductPage),
+    "/news/:id": ({ data }) => print(DetailPage, data.id),
+    "/signin": () => print(SignIn),
+    "/signup": () => print(SignUp),
     "/news/:id": ({ data }) => {
         const { id } = data;
         print(DetailPage.render(id))
 
     },
-    "/admin/dashboard": () => print(DashboardPage.render()),
+    "/admin/dashboard": () => print(DashboardPage),
     "/admin/products": () => console.log("admin product"),
-    "/admin/news": () => print(AdminNews.render()),
-    "/admin/news/add": () => print(AdminNewsAdd.render()),
-    "/admin/news/:id/edit": () => print(AdminNewsEdit.render()),
-    "/admin/news/:id": ({data}) => {
-         const {id} = data;
-         print(AdminNews.render(id))
+    "/admin/news": () => print(AdminNews),
+    "/admin/news/add": () => print(AdminNewsAdd),
+    "/admin/news/:id/edit": () => print(AdminNewsEdit),
+    "/admin/news/:id": ({ data }) => {
+        const { id } = data;
+        print(AdminNews.render(id))
     },
-    
+
 });
 
 router.resolve();
-
-function renderValueAfter3s() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            try {
-                resolve("Loaded data after 3s");
-            } catch(error) {
-                reject("Failed");
-            }
-            }, 3000);
-        });
-}
-
-//const render = renderValueAfter3s();
-//render 
-//.then((result) => console.log(result))
-//.catch((error) => console.log(error));
 

@@ -9,6 +9,7 @@ const ProductPage = {
         </header>
         <main>
         <img src="https://caodang.fpt.edu.vn/wp-content/uploads/thumbnail_Banner-Web.png" href="" class="">
+        <h2 class="text-center">HÀ NỘI</h2>
         
         </main>
 
