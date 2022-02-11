@@ -42,5 +42,14 @@
       "desc": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
       "id": "6"
     }
+  ],
+  "products": [],
+  "users": [
+    {
+      "email": "huongbtph16610@fpt.edu.vn",
+      "password": "$2a$10$y0tbBBWSU8kpqxTN.q8rzOGg6IU9WFdeDey7VQOAxvJfYe6fgWChC",
+      "username": "huongbtph16610",
+      "id": 1
+    }
   ]
 }

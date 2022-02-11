@@ -62,7 +62,7 @@ const AdminNewsAdd = {
             // lấy giá trị của file upload cho sử dụng formData
             const formData = new formData();
             formData.append("file", file);
-            formData.append("upload_preset", "jkbdphzy");
+            formData.append("upload_preset", "huongbtph16610");
             //call api
             axios({
                 url: "https://cloudinary.com/documentation/image_upload_api_reference",

@@ -1,6 +1,7 @@
-const SignIn = {
-    render() {
-        return `
+import { signin } from "../api/user";
+const Signin = {
+  render() {
+    return `
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-8">
     <div>
@@ -15,7 +16,7 @@ const SignIn = {
         </a>
       </p>
     </div>
-    <form class="mt-8 space-y-6" action="#" method="POST">
+    <form class="mt-8 space-y-6" action="#" method="POST" id="formSignin">
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
@@ -49,7 +50,24 @@ const SignIn = {
     </form>
   </div>
 </div>
-` 
-    }
+`
+  },
+
+  afterRender() {
+    const formSignin = document.querySelector('#formSignin');
+    formSignin.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      try {
+        const data = await signin({
+          email: document.querySelector('#email-address').value,
+          password: document.querySelector('#password').value
+        });
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    })
+  }
 };
-export default SignIn;
+export default Signin;

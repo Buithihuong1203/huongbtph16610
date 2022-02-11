@@ -7,8 +7,8 @@ import DashboardPage from "./pages/dashboard";
 import DetailPage from "./pages/detail";
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
-import SignIn from "./pages/signin";
-import SignUp from "./pages/signup";
+import Signin from "./pages/signin";
+import Signup from "./pages/signup";
 const router = new Navigo("/", { linksSelector: "a" });
 
 const print = async (content) => {
@@ -22,8 +22,8 @@ router.on({
     "/about": () => print(AboutPage),
     "/product": () => print(ProductPage),
     "/news/:id": ({ data }) => print(DetailPage, data.id),
-    "/signin": () => print(SignIn),
-    "/signup": () => print(SignUp),
+    "/signin": () => print(Signin),
+    "/signup": () => print(Signup),
     "/news/:id": ({ data }) => {
         const { id } = data;
         print(DetailPage.render(id))
