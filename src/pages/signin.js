@@ -55,7 +55,7 @@ const Signin = {
 
   afterRender() {
     const formSignin = document.querySelector('#formSignin');
-    formSignin.addEventListener('submit', async (e) => {
+    formSignin.addEventListener('submit', async function (e) {
       e.preventDefault();
       const response = await signin({
         email: document.querySelector('#email-address').value,
@@ -69,5 +69,5 @@ const Signin = {
       }
     });
   }
-};
+}
 export default Signin;

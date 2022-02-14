@@ -37,12 +37,12 @@ const AdminNewsAdd = {
                 <div class="px-4 py-6 sm:px-0">
                     <form id="form-add-post">
                         <input type="text" class="border border-black" id="title-post" placeholder="Title"/><br />
-
-                        <input type="file" class="border border-black" id="img-post" " /><br />
-
+                        <div class="w-3xl grid grid-cols-2 gap-8">
+                            <div><input type="file" class="border border-black" id="img-post" /></div>
+                            <div><img width="200" src="https://thumbs.dreamstime.com/b/no-thumbnail-image-placeholder-forums-blogs-websites-148010362.jpg" id="img-preview"/></div>
+                        </div>
                         <textarea name="" cols="30" rows="10" class="border border-black" id="desc-post" placeholder="Description"></textarea><br />
-
-                        <button class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Thêm</button>
+                        <button>Thêm</button>
                     </form>
                 </div>
                 <!-- /End replace -->
@@ -54,36 +54,31 @@ const AdminNewsAdd = {
     afterRender() {
         // console.log(document.querySelector('#form-add-post'));
         const formAdd = document.querySelector('#form-add-post');
+        const imgPreview = document.querySelector("#img-preview");
         const imgPost = document.querySelector("#img-post");
-        imgPost.addEventListener("change", (e) => {
-            const file = e.target.files[0];
-            console.log(file);
-
-            // lấy giá trị của file upload cho sử dụng formData
-            const formData = new formData();
-            formData.append("file", file);
-            formData.append("upload_preset", "huongbtph16610");
-            //call api
-            axios({
-                url: "https://cloudinary.com/documentation/image_upload_api_reference",
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-formendcoded",
-
-                },
-                data: formData,
-
-            });
-        });
-
-        formAdd.addEventListener('submit', function (e) {
+        const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/ecommercer2021/image/upload";
+        const CLOUDINARY_PRESET = "jkbdphzy";
+        formAdd.addEventListener("submit", async function (e) {
             e.preventDefault();
+            const file = imgPost.files[0];
+
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", CLOUDINARY_PRESET);
+
+            // call api cloudinary
+            const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
+                headers: {
+                    "Content-Type": "application/form-data"
+                }
+            })
+            // call api thêm bài viết
             add({
-                title: document.querySelector('#title-post').value,
-                img: document.querySelector('#img-post').value,
-                desc: document.querySelector('#desc-post').value
+                title: document.querySelector("#title-post").value,
+                img: data.url,
+                desc: document.querySelector("#desc-post").value,
             });
         });
-    }
-}
+    },
+};
 export default AdminNewsAdd;

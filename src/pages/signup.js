@@ -54,21 +54,18 @@ const Signup = {
   },
   afterRender() {
     const formSignup = document.querySelector('#formSignup');
-    console.log(formSignup)
-    formSignup.addEventListener('submit', async (e) => {
+    formSignup.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      try {
-        const data = await signup({
-          username: document.querySelector('#username').value,
-          email: document.querySelector('#email-address').value,
-          password: document.querySelector('#password').value
-        });
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    })
+      signup({
+
+        username: document.querySelector('#username').value,
+        email: document.querySelector('#email-address').value,
+        password: document.querySelector('#password').value
+      })
+    });
   }
-};
+}
+
+
 export default Signup;
