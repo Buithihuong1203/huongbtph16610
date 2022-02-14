@@ -11,8 +11,28 @@ const Header = {
             <li><a href="/admin/dashboard" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white">Quản Trị</a></li>
             <li><a href="/signin" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white">Đăng Nhập</a></li>
             </ul>
+            ${localStorage.getItem('user') ? `
+            <div>
+            Xin chào : <span id ="accountInfor">Username</span>
+            <button id="logout">Logout</button>
+            </div>
+            
+            `: ""}
         </div>
         `;
     },
+    afterRender() {
+        // lấy thông tin username từ localStorage và hiển thị ra ngoài
+        const username = JSON.parse(localStorage.getItem("user")).user.username;
+        document.querySelector('#accountInfo').innerHTML = username;
+        // Logout
+        const logout = document.querySelector('#logout');
+        if (logout) {
+            logout.addEventListener('click', function () {
+                localStorage.removeItem('user');
+                reRender(Header, "#header");
+            })
+        }
+    }
 };
 export default Header;
