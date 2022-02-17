@@ -11,13 +11,15 @@ const DetailPage = {
             ${Header.render()}
         </header>
         <main>
-            <div class="text-2xl text-white bg-orange-600"></div>
-            <h1 class="font-semibold italic">${data.title}</h1>
+            <div class="text-2xl text-white bg-orange-600 text-center"></div>
+            <h1 class="font-semibold italic text-center">${data.title}</h1>
             <img src="${data.img}" class="max-w-5xl mx-auto"/>
-            <p>${data.desc}</p>
+            <p class ="text-center">${data.desc}</p>
+            <h3>Cùng chuyên mục</h3>
+            
         </main>    
         <footer>
-            ${Footer.render}
+            ${Footer.render()}
         </footer>
             </div>
         `;

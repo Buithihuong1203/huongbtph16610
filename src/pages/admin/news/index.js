@@ -36,13 +36,13 @@ const AdminNews = {
             <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                 <!-- Replace with your content -->
                 <div class="px-4 py-6 sm:px-0">
-                    <table>
-                        <thead>
+                    <table class="table-auto min-w-full divide-y divide-gray-200>
+                        <thead class="bg-gray-50>
                             <tr>
                                 <th>STT</th>
                                 <th>Tiêu đề</th>
                                 <th>Ảnh</th>
-                                <th></th>
+                                <th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,8 +52,8 @@ const AdminNews = {
                                     <td>${post.title}</td>
                                     <td><img src="${post.img}" width="50"/></td>
                                     <td>
-                                        <a href="/admin/news/${post.id}/edit">Edit</a>
-                                        <button data-id="${post.id}" class="btn btn-remove">Xóa</button>
+                                        <a href="/admin/news/${post.id}/edit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Edit</a>
+                                        <button data-id="${post.id}" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</button>
                                     </td>
                                 </tr>
                             `).join("")}

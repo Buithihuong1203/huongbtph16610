@@ -5,8 +5,9 @@ import AdminNewsAdd from "./pages/admin/news/add";
 import AdminNewsEdit from "./pages/admin/news/edit";
 import DashboardPage from "./pages/dashboard";
 import DetailPage from "./pages/detail";
+import ProductsPage from "./pages/product";
+import DetailProductPage from "./pages/product/detail";
 import HomePage from "./pages/home";
-import ProductPage from "./pages/product";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -35,10 +36,11 @@ router.on('/admin/*/', () => { }, {
 router.on({
     "/": () => print(HomePage),
     "/about": () => print(AboutPage),
-    "/product": () => print(ProductPage),
-    "/news/:id": ({ data }) => print(DetailPage, data.id),
+    "/products": () => print(ProductsPage),
+    "/products/:id": ({ data }) => print(DetailProductPage, data.id),
     "/signin": () => print(Signin),
     "/signup": () => print(Signup),
+    "/products/:id": ({ data }) => print(DetailPage, data.id),
     "/news/:id": ({ data }) => print(DetailPage, data.id),
     "/admin/dashboard": () => print(DashboardPage),
     "/admin/products": () => console.log("admin product"),

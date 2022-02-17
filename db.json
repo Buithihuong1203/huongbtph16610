@@ -43,7 +43,45 @@
       "id": "6"
     }
   ],
-  "products": [],
+  "products": [
+    [
+      {
+        "createdAt": "2022-01-15T01:54:24.955Z",
+        "name": "Thiết kế web",
+        "img": "http://placeimg.com/640/480/cats",
+        "desc": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+        "id": "1"
+      },
+      {
+        "createdAt": "2022-01-15T02:36:13.715Z",
+        "name": "Thiết kế đồ họa",
+        "img": "http://placeimg.com/640/480/nature",
+        "desc": "The Football Is Good For Training And Recreational Purposes",
+        "id": "2"
+      },
+      {
+        "createdAt": "2022-01-14T12:38:27.738Z",
+        "name": "Marketing",
+        "img": "http://placeimg.com/640/480/nature",
+        "desc": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+        "id": "3"
+      },
+      {
+        "createdAt": "2022-01-15T01:54:24.955Z",
+        "name": "Digital Marketing",
+        "img": "http://placeimg.com/640/480/cats",
+        "desc": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+        "id": "4"
+      },
+      {
+        "createdAt": "2022-01-15T02:36:13.715Z",
+        "name": "Kinh tế",
+        "img": "http://placeimg.com/640/480/nature",
+        "desc": "The Football Is Good For Training And Recreational Purposes",
+        "id": "5"
+      }
+    ]
+  ],
   "users": [
     {
       "email": "huongbtph16610@fpt.edu.vn",
