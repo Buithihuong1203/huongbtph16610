@@ -1,17 +1,16 @@
 const Form = {
     render() {
-        return `<div class="mt-10 sm:mt-0 my-2 bg-orange-600 ">
-            <div class="md:grid md:grid-cols-3 md:gap-6 my-2">
-                <div class="md:col-span-1 bg-orange-600">
-                    <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Đăng ký học Fpoly 2022</h3>
+        return `<div class="mt-10 sm:mt-0 my-2 px-20 ">
+            <div class="md:grid md:grid-cols-3 md:gap-6 my-2 px-20 ">
+                <div class="mt-5 md:mt-0 md:col-span-2 px-20">
+                <div class="px-4 sm:px-0 px-20">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900 px-30">Đăng ký nhận tin khi có thông tin nhà bạn cần mua</h3>
                     </div>
-                </div>
-                <div class="mt-5 md:mt-0 md:col-span-2">
                     <form action="#" method="POST" id="formDangky">
-                        <div class="shadow overflow-hidden sm:rounded-md ">
-                            <div class="px-4 py-5 bg-orange-600 sm:p-6">
+                        <div class="shadow overflow-hidden sm:rounded-md px-20 ">
+                            <div class="px-4 py-5 sm:p-6 px-30">
                                 <div class="grid grid-cols-6 gap-6">
+ 
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">Họ và tên</label>
                                         <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -28,24 +27,24 @@ const Form = {
                                     </div>
 
                                     <div class="col-span-6 sm:col-span-3">
-                                        <label for="majors" class="block text-sm font-medium text-gray-700">Chọn ngành học</label>
+                                        <label for="majors" class="block text-sm font-medium text-gray-700">Chọn nhà cần mua</label>
                                         <select id="majors name="majors" autocomplete="majors" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                            <option>Chọn ngành học</option>
-                                            <option>Làm đẹp</option>
-                                            <option>Thiết kế web</option>
-                                            <option>Thiết kế đồ họa</option>
-                                            <option>Marketing</option>
-                                            <option>Digital Marketing</option>
+                                            <option>Chọn nhà</option>
+                                            <option>Chung cư</option>
+                                            <option>Nhà đất thổ cư</option>
+                                            <option>Nhà ở xã hội</option>
+                                            <option>Biệt thự</option>
+                                            <option>Đất trồng</option>
                                         </select>
                                     </div>
                                     <div class="col-span-6 sm:col-span-3">
-                                        <label for="address" class="block text-sm font-medium text-gray-700">Địa chỉ học</label>
+                                        <label for="address" class="block text-sm font-medium text-gray-700">Chọn thành phố</label>
                                         <select id="address" name="address" autocomplete="address" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                             <option></option>
                                              <option>Hà Nội</option>
-                                            <option>Đà Nẵng</option>
-                                            <option>Tây Nguyên</option>
+                                            <option>Nam Định</option>
                                             <option>Hồ Chí Minh</option>
+                                            <option>Bình Dương</option>
                                             <option>Cần Thơ</option>
                                         </select>
                                     </div>

@@ -3,30 +3,42 @@ import { reRender } from "../utils";
 const Header = {
     render() {
         return `
-        <div class="bg-orange-500">
+        <div class="bg-slate-100">
             <ul class="flex">
-            <li><img src="https://caodang.fpt.edu.vn/wp-content/uploads/logo-trang.png" class="" href=""></li>
-            <li><a href="/" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white">Trang Chủ</a></li>
-            <li><a href="/#/about" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white">Giới Thiệu</a></li>
-            <li><a href="/#/products" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white">Tin Tức</a></li>
-            <li><a href="/#/products" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white">Ngành Học</a></li>
-            <li><a href="/#/admin/news" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white">Quản Trị</a></li>
-            <li><a href="/#/signin" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white">Đăng Nhập</a></li>
-            </ul>
-            ${localStorage.getItem('user') ? `
-            <div>
+            <li><img src="	http://dongshop158.webmienphi.vn/userfiles/img/606849/12.png" class="w-40" href=""></li>
+            <li><a href="/" class="block px-4 py-5  hover:text-red">Trang Chủ</a></li>
+            <li><a href="/#/about" class="block px-4 py-5 hover:text-red">Về chúng tôi</a></li>
+
+            <li>
+            <a href="/#/products" class="block px-4 py-5 hover:text-red">Bạn đang cần gì ?</a>
+            </li>
+
+            <li><a href="/#/products" class="block px-4 py-5 hover:text-red">Phong thủy</a></li>
+            <li><a href="/#/admin/news" class="block px-4 py-5  hover:text-red">Nhà hay</a></li>
+            <li><a href="/#/tintucpage" class="block px-4 py-5 hover:text-red">Tin tức</a></li>
+            <li><a href="/#/admin/news" class="block px-4 py-5 hover:text-red">Liên hệ</a></li>
+            <li><a href="/#/cart"class="block px-4 py-5 hover:text-red">Giỏ hàng</a></li>
+            <li><a href="/#/signin" class="block px-4 py-5 hover:text-red">Đăng Nhập</a></li>
+            <li><a href=""></a>${localStorage.getItem('user') ? `
+            <div class="px-4 py-5">
             Xin chào : <span id ="accountInfor">Username</span>
             <button id="logout">Logout</button>
             </div>
             
             `: ""}
-        </div>
+            </div></li>
+            
+               
+            </ul>
+            
         `;
     },
     afterRender() {
         // lấy thông tin username từ localStorage và hiển thị ra ngoài
         const username = JSON.parse(localStorage.getItem("user")).user.username;
-        document.querySelector('#accountInfo').innerHTML = username;
+        if (username) {
+            document.querySelector('#accountInfor').innerHTML = username;
+        }
         // Logout
         const logout = document.querySelector('#logout');
         if (logout) {

@@ -7,7 +7,7 @@ import Form from "../components/form";
 const HomePage = {
     async render() {
         return /* html */`
-            <div class="max-w-5xl mx-auto">
+            <div class="mx-auto">
                 <header>
                     ${Header.render()}
                 </header>

@@ -2,12 +2,14 @@ import { get } from "../../api/products";
 import { addTocart } from "../../utils/cart";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 const DetailProductPage = {
     async render(id) {
         const { data } = await get(id);
         return `
-        <div class="max-w-5xl mx-auto">
+        <div class="mx-auto">
                 <header>
                     ${Header.render()}
                 </header>
@@ -20,10 +22,11 @@ const DetailProductPage = {
                       <h1 class="text-4xl font-bold text-indigo-500">${data.name}</h1>
                 
                       <p class="my-8">${data.desc}</p>
+                      <p>Lượt xem: 220</p>
                    <div>
-                      <input type="number" id="inputValue" class="border border-gray-500" />
+                      <span class="text-4xl">-</span><input type="number" id="inputValue" class="border border-gray-500" /><span class="text-4xl">+</span>
                    </div>
-                      <button id="btnAddToCart" class="block bg-red-700 text-white text-2xl uppercase w-full py-5 my-5">Chọn mua</button>
+                      <button id="btnAddToCart" class="block bg-red-700 text-white text-2xl uppercase w-full py-5 my-5">Yêu cầu liên hệ lại</button>
                    </div>
                 </div>
                 </main>

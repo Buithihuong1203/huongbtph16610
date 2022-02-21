@@ -1,5 +1,6 @@
 import Navigo from "navigo";
 import AboutPage from "./pages/about";
+import TintucPage from "./pages/tintucpage";
 import AdminNews from "./pages/admin/news";
 import AdminNewsAdd from "./pages/admin/news/add";
 import AdminNewsEdit from "./pages/admin/news/edit";
@@ -7,9 +8,14 @@ import DashboardPage from "./pages/dashboard";
 import DetailPage from "./pages/detail";
 import ProductsPage from "./pages/product";
 import DetailProductPage from "./pages/product/detail";
+import CartPage from "./pages/cart";
 import HomePage from "./pages/home";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
+import AdminProducts from "./pages/admin/products";
+import AdminProductsAdd from "./pages/admin/products/add";
+import AdminProductsEdit from "./pages/admin/products/edit";
+
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
 const print = async (component, id) => {
@@ -40,14 +46,19 @@ router.on({
     "/products/:id": ({ data }) => print(DetailProductPage, data.id),
     "/signin": () => print(Signin),
     "/signup": () => print(Signup),
-    "/products/:id": ({ data }) => print(DetailPage, data.id),
     "/news/:id": ({ data }) => print(DetailPage, data.id),
     "/admin/dashboard": () => print(DashboardPage),
-    "/admin/products": () => console.log("admin product"),
+    "/admin/products": () => print(AdminProducts),
     "/admin/news": () => print(AdminNews),
     "/admin/news/add": () => print(AdminNewsAdd),
-    "/admin/news/:id/edit": () => print(AdminNewsEdit),
+    "/admin/news/:id/edit": ({ data }) => print(AdminNewsEdit, data.id),
     "/admin/news/:id": ({ data }) => print(AdminNews, data.id),
+    "/cart": () => print(CartPage),
+    "/admin/products/add": () => print(AdminProductsAdd),
+    "/admin/products/:id/edit": ({ data }) => print(AdminProductsEdit, data.id),
+    "/tintucpage": () => print(TintucPage),
+
+
 
 
 });
